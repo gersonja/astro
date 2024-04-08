@@ -1,5 +1,6 @@
 ---
-
+import "./styles/global.css";
+const pagetitle = "Mi primera página con Astro";
 ---
 
 <html lang="es">
@@ -8,12 +9,17 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Mi primera aplicación Astro</title>
+    <title>{pagetitle}</title>
+    <style>
+      h1 {
+        @apply text-3xl font-bold text-blue-900;
+      }
+    </style>
   </head>
   <body>
     <a href="/">Principal</a>
     <a href="/about">Acerca de</a>
     <a href="/blog">Blog</a>
-    <h1>Mi página principal Astro</h1>
+    <h1>{pagetitle}</h1>
   </body>
 </html>

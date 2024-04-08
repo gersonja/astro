@@ -1,5 +1,18 @@
 ---
+import "./styles/global.css";
 
+const pagetitle = "Acerca de";
+const identity = {
+  firstName: "Gerson",
+  country: "Ecuador",
+  occupation: "FullStack Developer",
+  hobbies: ["Programar", "Leer", "Jugar"],
+};
+const skills = ["HTML", "CSS", "Astro"];
+const happy = true;
+const finished = true;
+const goal = 3;
+const skillcolor = "green";
 ---
 
 <html lang="es">
@@ -8,15 +21,52 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>About</title>
+    <title>{pagetitle}</title>
+    <style define:vars={{ skillcolor }}>
+      .skills {
+        @apply list-[upper-roman] pl-10;
+      }
+      .skill {
+        @apply text-[var(--skillcolor)] uppercase;
+      }
+    </style>
   </head>
   <body>
     <a href="/">Principal</a>
     <a href="/about">Acerca de</a>
     <a href="/blog">Blog</a>
-    <h1>Acerca de</h1>
+    <h1>{pagetitle}</h1>
     <h2>... y el tutorial de Astro</h2>
     <p>Estoy haciendo el tutorial de Astro que está en la página oficial</p>
+    <p>aquí algunos hechos sobre mí:</p>
+    <ul>
+      <li>Mi nombre es: {identity.firstName}</li>
+      <li>Vivo en: {identity.country}</li>
+      <li>Trabajo como: {identity.occupation}</li>
+      {
+        identity.hobbies.length >= 2 && (
+          <li>
+            Dos de mis hobbies son:
+            {identity.hobbies[0]}
+            {" y "}
+            {identity.hobbies[1]}
+          </li>
+        )
+      }
+    </ul>
+    <p>Mis habilidades son:</p>
+    <ul class="skills">
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+    {happy && <p>Estoy feliz Aprendiendo Astro!</p>}
+    {finished && <p>Estoy terminado Aprendiendo Astro!</p>}
+    {
+      goal === 3 ? (
+        <p>Estoy estudiando por el día {goal} de Aprendiendo Astro!</p>
+      ) : (
+        <p> No estoy estudiando por el día {goal} </p>
+      )
+    }
     <a href="https://astro.build/">Ir a la página oficial</a>
   </body>
 </html>
