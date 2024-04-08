@@ -1,0 +1,31 @@
+---
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+// const pagetitle = "Mi primera página con Astro";
+const { pagetitle } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pagetitle}</title>
+    <style>
+      h1 {
+        @apply text-3xl font-bold text-blue-900;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <h1>{pagetitle}</h1>
+    <slot />
+    <Footer />
+    <script>
+      import "../scripts/menu.js";
+    </script>
+  </body>
+</html>

@@ -1,25 +1,8 @@
 ---
-import "./styles/global.css";
-const pagetitle = "Mi primera página con Astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pagetitle = "Página Principal";
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pagetitle}</title>
-    <style>
-      h1 {
-        @apply text-3xl font-bold text-blue-900;
-      }
-    </style>
-  </head>
-  <body>
-    <a href="/">Principal</a>
-    <a href="/about">Acerca de</a>
-    <a href="/blog">Blog</a>
-    <h1>{pagetitle}</h1>
-  </body>
-</html>
+<BaseLayout pagetitle={pagetitle}>
+  <h2>Subtitulo de mi Blog</h2>
+</BaseLayout>
